@@ -53,6 +53,18 @@ register_sidebar([
 	'after_widget' => "",
 ]);
 
+//prime sidebar
+register_sidebar([
+	'id' => 'prime_bar',
+	'name' => 'Prime sidebar',
+	'description' => 'Prime sidebar of blog',
+	'class' => '',
+	'before_widget' => '<div id="%1$s" class="widget-cat %2$s">',
+	'after_widget' => "</div>\n",
+	'before_title' => '<h5 class="text-uppercase aside-head">',
+	'after_title' => "</h5>\n",
+]);
+
 //pagination changes
 function my_navigation_template( $template, $class ){
 	return '<nav class="navigation row end-xs %1$s" role="navigation"><div class="nav-links row">%3$s</div></nav>';
@@ -70,6 +82,20 @@ function carousel_generic() {
 	);
 	register_post_type( 'carousel' , $args ); }
 add_action('init', 'carousel_generic');
+
+//gallery post-type
+function gallery_posts() {
+	$args = array(
+		'label' => 'Galleries',
+		'singular_label' => 'One gallery slide',
+		'public' => true,
+		'show_ui' => true,
+		'hierarchical' => true,
+		'has_archive' => false,
+		'supports' => array( 'thumbnail', 'title', 'editor')
+	);
+	register_post_type( 'gallery' , $args ); }
+add_action('init', 'gallery_posts');
 
 //add category class in single-post
 function addCatClassInSinglePost($output) {
@@ -134,3 +160,12 @@ function most_commented_posts($post_num=10, $format='', $days=0, $cache='', $pos
 		wp_cache_add($key, $out, __FUNCTION__);
 	return $out;
 }
+
+//count categories in span
+function cat_count_span($links) {
+	$links = str_replace('<a ', '<a class="text-desc"', $links);
+	$links = str_replace('</a> (', '</a> <span class="num-cat">(', $links);
+	$links = str_replace(')', ')</span>', $links);
+	return $links;
+}
+add_filter('wp_list_categories', 'cat_count_span');
