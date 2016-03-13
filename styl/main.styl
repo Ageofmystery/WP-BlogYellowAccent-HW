@@ -9,6 +9,8 @@ global-reset()
 .navbar-brand
   font 300 30px $font-oswald
   color $col-yellow
+  @media (min-width 768px)
+    padding-left 0
   > span
     font-weight 700
     color $col-white
@@ -27,6 +29,10 @@ global-reset()
 .article-head
   font 400 20px/24px $font-oswald
   color $col-darkblack
+  > a
+    color $col-black
+    &:hover
+      color $col-yellow
 .text-desc
   font 400 14px/24px $font-arial
   color $col-textgray
@@ -49,9 +55,11 @@ global-reset()
   font 700 36px $font-oswald
   color $col-black
   text-transform uppercase
+  display block
   > span
     font-weight 300
     font-size 14px
+    line-height 9px
     display block
 //header--------------------------------------
 .prime-header
@@ -59,9 +67,10 @@ global-reset()
   max-height 164px
   position relative
   z-index 200
+  .navbar-collapse
+    padding 0
   .navbar-header
     width 100%
-    padding-right 15px
     .navbar-toggle
       border-color $col-white
       margin-top 18px
@@ -99,6 +108,9 @@ global-reset()
       placeholder-style(color, $col-placehold)
   .top-menu
     background $col-yellow
+    @media (max-width 767px)
+      margin-left 0
+      margin-right 0
     @media (min-width 768px)
       display flex
       justify-content space-between
@@ -113,6 +125,17 @@ global-reset()
         color $col-black
         min-width 25px
         &:hover
+          background $col-white !important
+          &:before
+            content ""
+            position absolute
+            left 0
+            top 7px
+            display block
+            border 8px solid transparent
+            border-left-color $col-yellow
+      &.current_page_parent, &.current_page_item
+        > a
           background $col-white !important
           &:before
             content ""
@@ -194,6 +217,9 @@ global-reset()
     .item
       > figure
         position relative
+        > img
+          width 692px
+          height 250px
         > svg
           position absolute
           bottom 0
@@ -205,8 +231,8 @@ global-reset()
         > h3
           font 400 22px $font-oswald
           color $col-white
-        > cite
-          font 300 15px/14px $font-oswald
+        > p
+          font 300 15px/16px $font-oswald
           color $col-white
   .contact-form-section
     position relative
@@ -251,9 +277,9 @@ global-reset()
         margin-top 55px
       > h4
         margin-bottom 15px
-      > p
+      > .desc-content
         margin 20px 0 15px
-      > h4, > .meta-inn, > p, > a
+      > h4, > .meta-inn, > .desc-content, > a
         margin-left 94px
     .blog-gallery-post
       position relative
@@ -323,7 +349,26 @@ global-reset()
           color $col-black
         > span
           margin-right 8px
+      a
+        color $col-black
+        &:hover
+          color $col-lightgray
+  .pagination
+    margin-bottom 40px
+    .page-numbers
+      width 25px
+      height 25px
+      display block
+      background rgba($col-lightgray, .84) !important
+      font 400 13px/25px $font-arial
+      color $col-darkblack
+      text-align center
+      margin-right 4px
+      &.current
+        background rgba($col-darkblack, .84) !important
+        color $col-white
   aside.prime-bar
+    margin-bottom 30px
     @media (min-width 1200px)
       max-width 29.35%
     .block-our-contacts
