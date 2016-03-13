@@ -1,0 +1,460 @@
+@import 'nib'
+@require 'mixin'
+@require '__variables'
+@require 'reset'
+
+global-reset()
+
+//universal-----------------------------------
+.navbar-brand
+  font 300 30px $font-oswald
+  color $col-yellow
+  > span
+    font-weight 700
+    color $col-white
+  &:hover
+    color $col-middlegray
+.article-primehead
+  font 700 16px $font-oswald
+  text-transform uppercase
+  color $col-darkblack
+  padding 20px 15px
+  &.cite-black
+    color $col-white
+    background url("../img/bg-cite.png") no-repeat left top
+    background-size cover
+    padding 11px 11px 42px
+.article-head
+  font 400 20px/24px $font-oswald
+  color $col-darkblack
+.text-desc
+  font 400 14px/24px $font-arial
+  color $col-textgray
+.btn-yellow
+  background $col-yellow !important
+  font 300 14px/35px $font-oswald
+  color $col-btntext
+  padding 0 10px
+  border none
+  border-radius 0
+  > span
+    width 22px
+    height 22px
+    margin-left 11px
+    background url("../img/bg-lines-low.png")
+    line-height 22px
+  &:hover
+    background $col-placehold !important
+.text-datetime
+  font 700 36px $font-oswald
+  color $col-black
+  text-transform uppercase
+  > span
+    font-weight 300
+    font-size 14px
+    display block
+//header--------------------------------------
+.prime-header
+  background url("../img/header-bg.png")
+  max-height 164px
+  position relative
+  z-index 200
+  .navbar-header
+    width 100%
+    padding-right 15px
+    .navbar-toggle
+      border-color $col-white
+      margin-top 18px
+      > .icon-bar
+        background $col-yellow
+    label[for="search"]
+      position relative
+      margin 15px
+      @media (min-width 768px)
+        margin 20px 0 8px 15px
+      &:before
+        content ""
+        display block
+        width 1px
+        height 20px
+        background $col-bordergray
+        position absolute
+        right 40px
+        top 10px
+      & > span
+        position absolute
+        right 10px
+        line-height 40px
+        color $col-bordergray
+        font-size 20px
+    input[type="search"]
+      background $col-middlegray
+      width 263px
+      height 40px
+      border 1px solid rgba($col-bordergray, 0.71)
+      box-shadow inset 0 2px 4px rgba($col-black, 0.26)
+      padding 0 10px
+      font 400 12px/40px $font-arial
+      color $col-placehold
+      placeholder-style(color, $col-placehold)
+  .top-menu
+    background $col-yellow
+    @media (min-width 768px)
+      display flex
+      justify-content space-between
+      flex-wrap wrap
+      width 100%
+    > li
+      position relative
+      padding 8px 0 8px 10px
+      > a
+        font 400 15px $font-oswald
+        padding 5px 12px
+        color $col-black
+        min-width 25px
+        &:hover
+          background $col-white !important
+          &:before
+            content ""
+            position absolute
+            left 0
+            top 7px
+            display block
+            border 8px solid transparent
+            border-left-color $col-yellow
+    > li:not(:last-child):after
+      content ""
+      position absolute
+      right 0
+      top 12px
+      display block
+      height 25px
+      border-right 1px solid $col-white
+//main---------------------------
+.content-inner
+  margin-top 20px
+  position relative
+  &:before
+    content ""
+    display block
+    position absolute
+    height 240px
+    top -20px
+    left 0
+    right 0
+    z-index -1
+    background-image linear-gradient(to top, $col-white 0%, $col-contentgrad 100%)
+  .content-center
+    @media (min-width 1200px)
+      min-width 69.2%
+  .info-contact
+    height 350px
+    > figure
+      position absolute
+      right 0
+      z-index -1
+    .prime-info
+      max-width 235px
+      > h2
+        font-size 36px
+        color $col-black
+        padding 20px 0
+      > p:first-of-type
+        font-weight 700
+        color $col-black
+        margin-bottom 10px
+  .carousel
+    position relative
+    padding 6px
+    background url("../img/bg-lines-mid.png")
+    margin-bottom 45px
+    .carousel-indicators
+      max-width 25px
+      top 15px
+      left auto
+      right 15px
+      > li
+        margin 0 0 2px 0
+        width 23px
+        height 23px
+        text-indent 0
+        border none
+        border-radius 0
+        background rgba($col-black, .42)
+        > span
+          font 400 13px/23px $font-arial
+          color $col-white
+        &.active
+          margin 0 0 2px 0
+          width 23px
+          height 23px
+          background $col-black
+          > span
+            color $col-yellow
+    .item
+      > figure
+        position relative
+        > svg
+          position absolute
+          bottom 0
+          .svg-bg
+            fill $col-yellow
+      .cite-inner
+        padding 20px 15px 18px
+        background $col-darkblack
+        > h3
+          font 400 22px $font-oswald
+          color $col-white
+        > cite
+          font 300 15px/14px $font-oswald
+          color $col-white
+  .contact-form-section
+    position relative
+    &:before
+      content ""
+      position absolute
+      background url("../img/bg-lines-mid.png")
+      opacity 0.45
+      top 0
+      left 0
+      right 0
+      bottom 0
+      z-index -1
+    .contact-form
+      padding 0 20px 20px
+      > label
+        display block
+      > button
+        min-width 110px
+      input, textarea
+        background $col-contentgrad
+        padding 0 11px
+        width 100%
+        max-width 380px
+        line-height 33px
+        margin-bottom 10px
+        border 1px solid darken($col-lightgray, 25%)
+        color $col-grayinput
+        placeholder-style(color, $col-grayinput)
+      textarea
+        max-width 670px
+  .blog-section
+    background $col-white
+    padding 5px
+    .blogs-inner
+      margin 15px 0
+    .blog-post
+      position relative
+      padding-bottom 15px
+      border-bottom 5px solid $col-lightgray
+      &:not(:first-child)
+        margin-top 55px
+      > h4
+        margin-bottom 15px
+      > p
+        margin 20px 0 15px
+      > h4, > .meta-inn, > p, > a
+        margin-left 94px
+    .blog-gallery-post
+      position relative
+      max-width 338px
+      overflow hidden
+      margin-bottom 15px
+      > h4
+        font-weight 300
+        line-height 37px
+        padding 0 15px
+        position absolute
+        left 0
+        top 0
+        display inline-block
+        background $col-yellow
+        z-index 3
+      > figure
+        &:before
+          content ""
+          position absolute
+          top 0
+          left 0
+          right 0
+          bottom 0
+          opacity 0
+          visibility hidden
+          transition opacity .5s ease
+          background rgba($col-darkblack, .86)
+        > figcaption
+          position absolute
+          bottom 0
+          left 0
+          font-weight 300
+          line-height 24px
+          text-transform none
+          color $col-white
+          z-index 2
+          transition transform .5s ease
+          transform translateY(-400px)
+          > a
+            color $col-white
+        &:hover
+          > figcaption
+            transform translateY(0)
+          &:before
+            opacity 1
+            visibility visible
+    .data-posted
+      height 72px
+      width 72px
+      position absolute
+      left 0
+      top 0
+      background $col-lightgray
+      border 1px solid $col-white
+      box-shadow 0 0 0 4px $col-lightgray
+    .meta-inn
+      > div
+        background lighten($col-lightgray, 70%)
+        margin-right 10px
+        padding 0 10px
+      p
+        font 400 12px/24px $font-arial
+        color $col-middlegray
+        > strong
+          font-weight 700
+          color $col-black
+        > span
+          margin-right 8px
+  aside.prime-bar
+    @media (min-width 1200px)
+      max-width 29.35%
+    .block-our-contacts
+      background $col-white
+      border-bottom 4px solid $col-lightgray
+      margin-bottom 20px
+      .our-info-contact
+        padding 0 20px 20px
+        .our-phone a
+          font 700 18px $font-oswald
+          color $col-black
+        .our-mail a
+          font 300 18px $font-oswald
+          color $col-black
+          text-transform uppercase
+        > p
+          font-size 12px
+          line-height 14px
+          margin 11px 0 15px
+        > address
+          height 37px
+          background $col-yellow
+          > span
+            color $col-white
+            margin 5px 10px
+            font-size 24px
+            &:before
+              vertical-align 15%
+          > a
+            display inline-block
+            line-height 35px
+    .block-subscribe
+      background $col-white
+      border-bottom 4px solid $col-lightgray
+      margin-bottom 20px
+      .form-search
+        padding 0 20px 20px
+        > label
+          display block
+        input
+          background $col-contentgrad
+          padding 0 11px
+          line-height 33px
+          width 100%
+          margin-bottom 10px
+          border 1px solid darken($col-lightgray, 25%)
+          color $col-grayinput
+          placeholder-style(color, $col-grayinput)
+    .block-most-popular
+      margin-bottom 30px
+      position relative
+      &:before
+        content ""
+        position absolute
+        background url("../img/bg-lines-mid.png")
+        opacity 0.45
+        top 0
+        left 0
+        right 0
+        bottom 0
+        z-index -1
+      .list-popular
+        margin 10px 10px 0
+        padding-bottom 10px
+        > li
+          background $col-white
+          padding 14px
+          margin-bottom 8px
+          &:last-child
+            margin-bottom 0
+          > a
+            font-size 16px
+            display block
+          &:hover
+            background $col-yellow
+            > a
+              color $col-black
+    .block-categories
+      margin-bottom 30px
+      position relative
+      &:before
+        content ""
+        position absolute
+        background url("../img/bg-lines-mid.png")
+        opacity 0.45
+        top 0
+        left 0
+        right 0
+        bottom 0
+        z-index -1
+      .list-categories
+        margin 10px 10px 0
+        padding-bottom 10px
+        > li
+          background $col-middlegray
+          padding 4px 4px 4px 11px
+          margin-bottom 8px
+          position relative
+          &:last-child
+            margin-bottom 0
+          &:hover
+            background $col-yellow
+            > a
+              color $col-black
+          > a
+            display block
+            line-height 26px
+            > span
+              position absolute
+              color $col-black
+              font-weight 700
+              right 5px
+              min-width 50px
+              height 26px
+              background $col-yellow
+              text-align center
+//footer--------------------------------
+.prime-foot
+  background url("../img/bg-foot.png")
+  .foot-inn
+    height 76px
+    address
+      color $col-white
+      font-size 12px
+      font-weight 700
+
+
+
+
+
+
+
+
+
