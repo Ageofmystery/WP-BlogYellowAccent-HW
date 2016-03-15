@@ -1,7 +1,7 @@
 <?php get_header();?>
 
 <main class="content-inner">
-    <div class="container">
+    <div class="container side-wrap">
         <section class="col-lg-8 col-md-12 content-center">
             <div class="blog-section">
                 <h3 class="article-primehead cite-black"><?php the_title(); ?> - Gallery</h3>

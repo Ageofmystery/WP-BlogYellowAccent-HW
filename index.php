@@ -1,7 +1,7 @@
 <?php get_header();?>
 
 <main class="content-inner">
-    <div class="container">
+    <div class="container side-wrap">
         <section class="col-lg-8 col-md-12 content-center">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">

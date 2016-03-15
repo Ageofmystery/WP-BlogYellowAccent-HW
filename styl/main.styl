@@ -167,6 +167,8 @@ global-reset()
     right 0
     z-index -1
     background-image linear-gradient(to top, $col-white 0%, $col-contentgrad 100%)
+  > .side-wrap
+    display flex
   .content-center
     @media (min-width 1200px)
       min-width 69.2%
@@ -220,6 +222,7 @@ global-reset()
         > img
           width 692px
           height 250px
+          object-fit cover
         > svg
           position absolute
           bottom 0
@@ -246,11 +249,11 @@ global-reset()
       right 0
       bottom 0
       z-index -1
-    .contact-form
+    .contact-form, .wpcf7-form
       padding 0 20px 20px
-      > label
+      label
         display block
-      > button
+      button
         min-width 110px
       input, textarea
         background $col-contentgrad
@@ -408,92 +411,96 @@ global-reset()
           > a
             display inline-block
             line-height 35px
-    .block-subscribe
+.block-subscribe
+  background $col-white
+  border-bottom 4px solid $col-lightgray
+  margin-bottom 20px
+  .form-search
+    padding 0 20px 20px
+    > label
+      display block
+    input
+      background $col-contentgrad
+      padding 0 11px
+      line-height 33px
+      width 100%
+      margin-bottom 10px
+      border 1px solid darken($col-lightgray, 25%)
+      color $col-grayinput
+      placeholder-style(color, $col-grayinput)
+.block-most-popular
+  margin-bottom 30px
+  position relative
+  &:before
+    content ""
+    position absolute
+    background url("../img/bg-lines-mid.png")
+    opacity 0.45
+    top 0
+    left 0
+    right 0
+    bottom 0
+    z-index -1
+  .list-popular
+    margin 10px 10px 0
+    padding-bottom 10px
+    > li
       background $col-white
-      border-bottom 4px solid $col-lightgray
-      margin-bottom 20px
-      .form-search
-        padding 0 20px 20px
-        > label
-          display block
-        input
-          background $col-contentgrad
-          padding 0 11px
-          line-height 33px
-          width 100%
-          margin-bottom 10px
-          border 1px solid darken($col-lightgray, 25%)
-          color $col-grayinput
-          placeholder-style(color, $col-grayinput)
-    .block-most-popular
-      margin-bottom 30px
+      padding 14px
+      margin-bottom 8px
+      &:last-child
+        margin-bottom 0
+      > a
+        font-size 16px
+        display block
+      &:hover
+        background $col-yellow
+        > a
+          color $col-black
+.block-categories
+  margin-bottom 30px
+  position relative
+  &:before
+    content ""
+    position absolute
+    background url("../img/bg-lines-mid.png")
+    opacity 0.45
+    top 0
+    left 0
+    right 0
+    bottom 0
+    z-index -1
+  .list-categories
+    margin 10px 10px 0
+    padding-bottom 10px
+    > li
+      background $col-middlegray
+      padding 4px 4px 4px 11px
+      margin-bottom 8px
       position relative
-      &:before
-        content ""
-        position absolute
-        background url("../img/bg-lines-mid.png")
-        opacity 0.45
-        top 0
-        left 0
-        right 0
-        bottom 0
-        z-index -1
-      .list-popular
-        margin 10px 10px 0
-        padding-bottom 10px
-        > li
-          background $col-white
-          padding 14px
-          margin-bottom 8px
-          &:last-child
-            margin-bottom 0
-          > a
-            font-size 16px
-            display block
-          &:hover
-            background $col-yellow
-            > a
-              color $col-black
-    .block-categories
-      margin-bottom 30px
-      position relative
-      &:before
-        content ""
-        position absolute
-        background url("../img/bg-lines-mid.png")
-        opacity 0.45
-        top 0
-        left 0
-        right 0
-        bottom 0
-        z-index -1
-      .list-categories
-        margin 10px 10px 0
-        padding-bottom 10px
-        > li
-          background $col-middlegray
-          padding 4px 4px 4px 11px
-          margin-bottom 8px
-          position relative
-          &:last-child
-            margin-bottom 0
-          &:hover
-            background $col-yellow
-            > a
-              color $col-black
-          > a
-            display block
-            line-height 26px
-            + span
-              position absolute
-              color $col-black
-              font-weight 700
-              top 4px
-              right 5px
-              min-width 50px
-              line-height 26px
-              background $col-yellow
-              text-align center
+      &:last-child
+        margin-bottom 0
+      &:hover
+        background $col-yellow
+        > a
+          color $col-black
+      > a
+        display block
+        line-height 26px
+        + span
+          position absolute
+          color $col-black
+          font-weight 700
+          top 4px
+          right 5px
+          min-width 50px
+          line-height 26px
+          background $col-yellow
+          text-align center
+.ban-x
+  img
+    width 300px
+    height 250px
 //footer--------------------------------
 .prime-foot
   background url("../img/bg-foot.png")

@@ -20,7 +20,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="row between-xs">
-                    <h1 class="logo"><a class="navbar-brand" href="<?php echo home_url(); ?>">Blog <span><?php bloginfo('name'); ?></span></a></h1>
+                    <h1 class="logo"><a class="navbar-brand" href="<?php echo home_url(); ?>"><?php echo get_theme_mod('logo_name_set', 'Blog'); ?> <span><?php bloginfo('name'); ?></span></a></h1>
                     <?php dynamic_sidebar('widget-header-search'); ?>
                 </div>
             </div>
